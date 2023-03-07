@@ -1,10 +1,10 @@
 <template>
     <div class="card g-col-6">
-        <img src="..." class="card-img-top" alt="...">
+        <img src="" class="card-img-top" alt="...">
         <div class="card-body">
             <p>{{ film.original_title }}</p>
             <p>{{ film.title }}</p>
-            <p>{{ film.original_language }}</p>
+            <span>Lingua: </span>
             <img :src="getLang(film.original_language)" alt="">
             <p>{{ film.vote_average }}</p>
         </div>
@@ -23,13 +23,13 @@ export default {
         getLang(flag) {
             switch (flag) {
                 case 'en':
-                    return ('https://picsum.photos/200')
+                    return ('https://flagcdn.com/32x24/gb.png')
                 case 'fr':
-                    return ('https://picsum.photos/100')
+                    return ('https://flagcdn.com/32x24/fr.png')
                 case 'it':
-                    return ('https://picsum.photos/400')
+                    return ('https://flagcdn.com/32x24/it.png')
                 default:
-                    return ('https://picsum.photos/600')
+                    return ('https://flagcdn.com/32x24/sc.png')
             }
         },
     }
