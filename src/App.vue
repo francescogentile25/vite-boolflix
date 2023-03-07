@@ -1,19 +1,40 @@
 <template>
-  <div>
-    <h1>ciao</h1>
-  </div>
-  <Header></Header>
+  <Header @ricerca="fetchFilms"></Header>
   <Main></Main>
+  <Card v-for="film in store.films" :key="film.id" :film="film"></Card>
 </template>
 
 <script>
+import axios from 'axios'
+import store from './store'
 import Header from './components/Header.vue';
 import Main from './components/Main.vue'
+import Card from './components/Card.vue';
 export default {
   components: {
     Header,
     Main,
+    Card,
   },
+  data() {
+    return {
+      store,
+    }
+  },
+  methods: {
+    fetchFilms() {
+      let search = this.store.search
+      axios
+        .get(`https://api.themoviedb.org/3/search/movie?api_key=e99307154c6dfb0b4750f6603256716d&query=${search}&language=it-IT`)
+        .then((res) => {
+          this.store.films = res.data.results
+        })
+    },
+  },
+  created() {
+    this.fetchFilms()
+  }
+
 }
 </script>
 
