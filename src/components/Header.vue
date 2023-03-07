@@ -5,11 +5,11 @@
                 <img src="../assets/favicon.ico" alt="Logo" class="d-inline-block align-text-top">
                 BoolFlix
             </a>
-            <form class="d-flex" role="search">
-                <input class="form-control me-2" type="search" placeholder="Ricerca" aria-label="Search"
-                    @keyup.enter="$emit('ricerca')" v-model="store.search">
+            <div class="d-flex">
+                <input class="form-control me-2" placeholder="Ricerca" @keyup.enter="$emit('ricerca')"
+                    v-model="store.search">
                 <button class="btn btn-outline-success" type="submit">Ricerca</button>
-            </form>
+            </div>
         </div>
     </nav>
 </template>
