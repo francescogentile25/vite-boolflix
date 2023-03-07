@@ -23,9 +23,14 @@ export default {
   },
   methods: {
     fetchFilms() {
-      let search = this.store.search
+      const search = this.store.search
       axios
-        .get(`https://api.themoviedb.org/3/search/movie?api_key=e99307154c6dfb0b4750f6603256716d&query=${search}&language=it-IT`)
+        .get('https://api.themoviedb.org/3/search/movie?api_key=e99307154c6dfb0b4750f6603256716d', {
+          params: {
+            query: search,
+            language: 'it-IT',
+          }
+        })
         .then((res) => {
           this.store.films = res.data.results
         })
