@@ -1,7 +1,9 @@
 <template>
   <Header @ricerca="fetchFilms"></Header>
   <Main></Main>
-  <Card v-for="film in store.films" :key="film.id" :film="film"></Card>
+  <div class="cards">
+    <Card v-for="film in store.films" :key="film.id" :film="film"></Card>
+  </div>
 </template>
 
 <script>
@@ -44,6 +46,12 @@ export default {
 </script>
 
 <style lang="scss">
-@use './style/general.scss'
+@use './style/general.scss';
+
+.cards {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 20px;
+}
 </style>
 

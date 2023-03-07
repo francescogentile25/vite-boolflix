@@ -8,7 +8,9 @@
             <div class="d-flex">
                 <input class="form-control me-2" placeholder="Ricerca" @keyup.enter="$emit('ricerca')"
                     v-model="store.search">
-                <button class="btn btn-outline-success" type="submit">Ricerca</button>
+                <button class="btn btn-outline-success" type="submit" @click="$emit('ricerca')">
+                    Ricerca
+                </button>
             </div>
         </div>
     </nav>
