@@ -72,6 +72,10 @@ export default {
 <style lang="scss">
 @use './style/general.scss';
 
+Card {
+  background-color: red;
+}
+
 .cards {
   padding: 20px;
   display: grid;
