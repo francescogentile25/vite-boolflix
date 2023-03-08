@@ -7,13 +7,12 @@
             <span>Lingua: </span>
             <img :src="getLang(film.original_language)" alt="">
             <div>
-                <font-awesome-icon icon="fa-solid fa-star" :class="{ 'text-warning': roundStar === 1 }" />
-                <font-awesome-icon icon="fa-solid fa-star" :class="{ 'text-warning': roundStar === 2 }" />
-                <font-awesome-icon icon="fa-solid fa-star" :class="{ 'text-warning': roundStar === 3 }" />
-                <font-awesome-icon icon="fa-solid fa-star" :class="{ 'text-warning': roundStar === 4 }" />
-                <font-awesome-icon icon="fa-solid fa-star" :class="{ 'text-warning': roundStar === 5 }" />
+                <font-awesome-icon icon="fa-solid fa-star" :class="{ 'text-warning': roundStar >= 1 }" />
+                <font-awesome-icon icon="fa-solid fa-star" :class="{ 'text-warning': roundStar >= 2 }" />
+                <font-awesome-icon icon="fa-solid fa-star" :class="{ 'text-warning': roundStar >= 3 }" />
+                <font-awesome-icon icon="fa-solid fa-star" :class="{ 'text-warning': roundStar >= 4 }" />
+                <font-awesome-icon icon="fa-solid fa-star" :class="{ 'text-warning': roundStar >= 5 }" />
             </div>
-            <p>{{ roundStar }}</p>
 
             <!-- <p>{{ star(roundStar) }}</p> -->
         </div>
@@ -64,6 +63,6 @@ export default {
 
 <style lang="scss" scoped>
 .prova {
-    background-image: url(fullPath());
+    background-image: var(fullPath);
 }
 </style>
