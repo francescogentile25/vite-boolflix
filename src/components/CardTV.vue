@@ -2,10 +2,10 @@
     <div class="card">
         <img :src="fullPath" class="card-img-top" alt="...">
         <div class="card-body">
-            <p>{{ film.original_title }}</p>
-            <p>{{ film.title }}</p>
+            <p>{{ tv.original_title }}</p>
+            <p>{{ tv.title }}</p>
             <span>Lingua: </span>
-            <img :src="getLang(film.original_language)" alt="">
+            <img :src="getLang(tv.original_language)" alt="">
             <p>{{ roundStar }}</p>
             <!-- <p>{{ star(roundStar) }}</p> -->
         </div>
@@ -21,7 +21,7 @@ export default {
         }
     },
     props: {
-        film: {
+        tv: {
             type: Object,
             required: true
         }

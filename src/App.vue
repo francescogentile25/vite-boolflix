@@ -1,8 +1,9 @@
 <template>
-  <Header @ricerca="fetchFilms"></Header>
+  <Header @ricerca="fetch"></Header>
   <Main></Main>
   <div class="cards">
     <Card v-for="film in store.films" :key="film.id" :film="film"></Card>
+    <CardTV v-for="tv in store.tv" :key="tv.id" :tv="tv"></CardTV>
   </div>
 </template>
 
@@ -12,11 +13,13 @@ import store from './store'
 import Header from './components/Header.vue';
 import Main from './components/Main.vue'
 import Card from './components/Card.vue';
+import CardTV from './components/CardTV.vue'
 export default {
   components: {
     Header,
     Main,
     Card,
+    CardTV,
   },
   data() {
     return {
@@ -24,6 +27,10 @@ export default {
     }
   },
   methods: {
+    fetch() {
+      this.fetchFilms();
+      this.fetchTv();
+    },
     fetchFilms() {
       const search = this.store.search
       axios
@@ -36,8 +43,11 @@ export default {
         .then((res) => {
           this.store.films = res.data.results
         })
+      // .carch(err => {
+      //   this.store.movies = []
+      // })
     },
-    fetchSereis() {
+    fetchTv() {
       const search = this.store.search
       axios
         .get('https://api.themoviedb.org/3/search/tv?api_key=e99307154c6dfb0b4750f6603256716d', {
@@ -47,13 +57,14 @@ export default {
           }
         })
         .then((res) => {
-          this.store.films = res.data.results
+          this.store.tv = res.data.results
         })
     }
   },
   created() {
     this.fetchFilms()
-    this.fetchSereis()
+    this.fetchTv()
+    this.fetch()
   }
 }
 </script>
@@ -63,7 +74,7 @@ export default {
 
 .cards {
   display: grid;
-  grid-template-columns: repeat(5, 1fr);
+  grid-template-columns: repeat(10, 1fr);
   gap: 20px;
 }
 </style>

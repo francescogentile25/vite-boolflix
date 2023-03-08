@@ -1,7 +1,7 @@
 import { reactive } from 'vue'
 const store = reactive({
     films: [],
-    serieTv: [],
+    tv: [],
     search: '',
 })
 export default store
