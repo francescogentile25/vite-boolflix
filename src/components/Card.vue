@@ -1,13 +1,20 @@
 <template>
-    <div class="card">
+    <div class="card prova">
         <img :src="fullPath" class="card-img-top" alt="...">
         <div class="card-body">
-            <p>{{ film.original_title }}</p>
-            <p>{{ film.title }}</p>
+            <h3>{{ film.original_title }}</h3>
+            <h5>{{ film.title }}</h5>
             <span>Lingua: </span>
             <img :src="getLang(film.original_language)" alt="">
-            <font-awesome-icon icon="fa-solid fa-star" />
+            <div>
+                <font-awesome-icon icon="fa-solid fa-star" :class="{ 'text-warning': roundStar === 1 }" />
+                <font-awesome-icon icon="fa-solid fa-star" :class="{ 'text-warning': roundStar === 2 }" />
+                <font-awesome-icon icon="fa-solid fa-star" :class="{ 'text-warning': roundStar === 3 }" />
+                <font-awesome-icon icon="fa-solid fa-star" :class="{ 'text-warning': roundStar === 4 }" />
+                <font-awesome-icon icon="fa-solid fa-star" :class="{ 'text-warning': roundStar === 5 }" />
+            </div>
             <p>{{ roundStar }}</p>
+
             <!-- <p>{{ star(roundStar) }}</p> -->
         </div>
     </div>
@@ -18,7 +25,7 @@ export default {
     data() {
         return {
             imagePath: 'https://image.tmdb.org/t/p/w342/',
-            // icons: []
+            icons: []
         }
     },
     props: {
@@ -51,26 +58,12 @@ export default {
                     return ('https://flagcdn.com/32x24/sc.png')
             }
         },
-        // star(vote) {
-        //     switch (vote) {
-        //         case 1:
-        //             return (`<i v-for="(icon, index) in icons" :key="index" :class="{ 'highlighted': index < 1 }" class="fa fa-{{ icon }}"></i>`)
-        //         case 2:
-        //             return (`<i v-for="(icon, index) in icons" :key="index" :class="{ 'highlighted': index < 2 }" class="fa fa-{{ icon }}"></i>`)
-        //         case 3:
-        //             return (`<i v-for="(icon, index) in icons" :key="index" :class="{ 'highlighted': index < 3 }" class="fa fa-{{ icon }}"></i>`)
-        //         case 4:
-        //             return (`<i v-for="(icon, index) in icons" :key="index" :class="{ 'highlighted': index < 4 }" class="fa fa-{{ icon }}"></i>`)
-        //         case 5:
-        //             return (`<i v-for="(icon, index) in icons" :key="index" :class="{ 'highlighted': index < 5 }" class="fa fa-{{ icon }}"></i>`)
-        //     }
-        // }
     }
 }
 </script>
 
 <style lang="scss" scoped>
-.highlighted {
-    color: yellow;
+.prova {
+    background-image: url(fullPath());
 }
 </style>

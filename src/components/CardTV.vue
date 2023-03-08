@@ -2,8 +2,8 @@
     <div class="card">
         <img :src="fullPath" class="card-img-top" alt="...">
         <div class="card-body">
-            <p>{{ tv.original_name }}</p>
-            <p>{{ tv.name }}</p>
+            <h3>{{ tv.original_name }}</h3>
+            <h5>{{ tv.name }}</h5>
             <span>Lingua: </span>
             <img :src="getLang(tv.original_language)" alt="">
             <p>{{ roundStar }}</p>

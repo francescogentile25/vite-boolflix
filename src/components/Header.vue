@@ -1,5 +1,5 @@
 <template>
-    <nav class="navbar">
+    <nav class="navbar bg-dark">
         <div class="container-fluid">
             <a class="navbar-brand text-white" href="#">
                 <img src="../assets/favicon.ico" alt="Logo" class="d-inline-block align-text-top">

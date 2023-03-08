@@ -73,8 +73,9 @@ export default {
 @use './style/general.scss';
 
 .cards {
+  padding: 20px;
   display: grid;
-  grid-template-columns: repeat(10, 1fr);
+  grid-template-columns: repeat(6, 1fr);
   gap: 20px;
 }
 </style>
