@@ -6,6 +6,7 @@
             <p>{{ film.title }}</p>
             <span>Lingua: </span>
             <img :src="getLang(film.original_language)" alt="">
+            <font-awesome-icon icon="fa-solid fa-star" />
             <p>{{ roundStar }}</p>
             <!-- <p>{{ star(roundStar) }}</p> -->
         </div>

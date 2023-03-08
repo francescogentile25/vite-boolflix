@@ -2,12 +2,11 @@
     <div class="card">
         <img :src="fullPath" class="card-img-top" alt="...">
         <div class="card-body">
-            <p>{{ tv.original_title }}</p>
-            <p>{{ tv.title }}</p>
+            <p>{{ tv.original_name }}</p>
+            <p>{{ tv.name }}</p>
             <span>Lingua: </span>
             <img :src="getLang(tv.original_language)" alt="">
             <p>{{ roundStar }}</p>
-            <!-- <p>{{ star(roundStar) }}</p> -->
         </div>
     </div>
 </template>
@@ -31,10 +30,10 @@ export default {
             return this.imagePath + this.imageName;
         },
         imageName() {
-            return this.film.poster_path;
+            return this.tv.poster_path;
         },
         roundStar() {
-            return Math.round(this.film.vote_average / 2)
+            return Math.round(this.tv.vote_average / 2)
         }
     },
     methods: {
