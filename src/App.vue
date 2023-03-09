@@ -43,9 +43,6 @@ export default {
         .then((res) => {
           this.store.films = res.data.results
         })
-      // .carch(err => {
-      //   this.store.movies = []
-      // })
     },
     fetchTv() {
       const search = this.store.search
@@ -79,7 +76,7 @@ Card {
 .cards {
   padding: 20px;
   display: grid;
-  grid-template-columns: repeat(6, 1fr);
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
   gap: 20px;
 }
 </style>

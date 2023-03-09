@@ -1,9 +1,10 @@
 <template>
-    <div class="card">
-        <img :src="fullPath" class="card-img-top" alt="..." @mouseenter="isHover = true" @mouseleave="isHover = false">
+    <div class="card  overflow-auto shadow" @mouseenter="isHover = true" @mouseleave="isHover = false">
+        <img :src="fullPath" class="card-img-top" alt="...">
         <div class=" prova" :class="{ visible: isHover }">
             <h3>{{ film.original_title }}</h3>
             <h5>{{ film.title }}</h5>
+            <h1>nome</h1>
             <span>Lingua: </span>
             <img :src="getLang(film.original_language)" alt="">
             <div>
@@ -13,6 +14,7 @@
                 <font-awesome-icon icon="fa-solid fa-star" :class="{ 'text-warning': roundStar >= 4 }" />
                 <font-awesome-icon icon="fa-solid fa-star" :class="{ 'text-warning': roundStar >= 5 }" />
             </div>
+            <p>{{ film.overview }}</p>
             <!-- <p>{{ star(roundStar) }}</p> -->
         </div>
     </div>
@@ -23,7 +25,6 @@ export default {
     data() {
         return {
             imagePath: 'https://image.tmdb.org/t/p/w342/',
-            icons: [],
             isHover: false,
         }
     },
@@ -63,12 +64,17 @@ export default {
 
 <style lang="scss" scoped>
 .card {
+    color: white;
     position: relative;
+    background-color: rgb(61, 60, 60);
 }
 
 .prova {
+
+    background-color: rgb(61, 60, 60);
+    opacity: 0.8;
+    padding: 20px;
     display: none;
-    background-color: red;
     position: absolute;
     top: 0;
     bottom: 0;
