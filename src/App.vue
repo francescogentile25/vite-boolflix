@@ -2,7 +2,9 @@
   <Header @ricerca="fetch"></Header>
   <Main></Main>
   <div class="cards">
+    <h2 class="title">Film</h2>
     <Card v-for="film in store.films" :key="film.id" :film="film"></Card>
+    <h2 class="title">Serire tv</h2>
     <CardTV v-for="tv in store.tv" :key="tv.id" :tv="tv"></CardTV>
   </div>
 </template>
@@ -69,8 +71,13 @@ export default {
 <style lang="scss">
 @use './style/general.scss';
 
-Card {
-  background-color: red;
+
+
+.title {
+  color: white;
+  grid-column: 1 / 8;
+  text-align: center;
+  font-size: 52px;
 }
 
 .cards {

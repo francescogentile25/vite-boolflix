@@ -1,10 +1,9 @@
 <template>
     <div class="card overflow-auto shadow" @mouseenter="isHover = true" @mouseleave="isHover = false">
         <img :src="fullPath" class="card-img-top" alt="...">
-        <div class=" prova" :class="{ visible: isHover }">
+        <div class=" description" :class="{ visible: isHover }">
             <h3>{{ tv.original_name }}</h3>
             <h5>{{ tv.name }}</h5>
-            <h1>Questa è una serie</h1>
             <span>Lingua: </span>
             <img :src="getLang(tv.original_language)" alt="">
             <div>
@@ -68,7 +67,7 @@ export default {
     background-color: rgb(61, 60, 60);
 }
 
-.prova {
+.description {
 
     background-color: rgb(61, 60, 60);
     opacity: 0.8;

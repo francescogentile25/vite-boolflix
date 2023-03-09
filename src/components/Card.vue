@@ -1,10 +1,9 @@
 <template>
     <div class="card  overflow-auto shadow" @mouseenter="isHover = true" @mouseleave="isHover = false">
         <img :src="fullPath" class="card-img-top" alt="...">
-        <div class=" prova" :class="{ visible: isHover }">
+        <div class=" description" :class="{ visible: isHover }">
             <h3>{{ film.original_title }}</h3>
             <h5>{{ film.title }}</h5>
-            <h1>nome</h1>
             <span>Lingua: </span>
             <img :src="getLang(film.original_language)" alt="">
             <div>
@@ -14,13 +13,13 @@
                 <font-awesome-icon icon="fa-solid fa-star" :class="{ 'text-warning': roundStar >= 4 }" />
                 <font-awesome-icon icon="fa-solid fa-star" :class="{ 'text-warning': roundStar >= 5 }" />
             </div>
-            <p>{{ film.overview }}</p>
-            <!-- <p>{{ star(roundStar) }}</p> -->
+            <p class="overview">{{ film.overview }}</p>
         </div>
     </div>
 </template>
 
 <script>
+import axios from 'axios'
 export default {
     data() {
         return {
@@ -58,6 +57,21 @@ export default {
                     return ('https://flagcdn.com/32x24/sc.png')
             }
         },
+        fetchCast() {
+            axios
+                .get('https://api.themoviedb.org/3/tv/671/credits?api_key=f96597e112b6db7164f5627643c3e970', {
+                    params: {
+                        movie_id: this.id,
+                        language: 'it-IT',
+                    }
+                })
+                .then((res) => {
+                    console.log(res.data.cast[1].name)
+                })
+        },
+    },
+    created() {
+        this.fetchCast()
     }
 }
 </script>
@@ -69,7 +83,7 @@ export default {
     background-color: rgb(61, 60, 60);
 }
 
-.prova {
+.description {
 
     background-color: rgb(61, 60, 60);
     opacity: 0.8;
@@ -85,5 +99,11 @@ export default {
 
 .visible {
     display: block
+}
+
+.overview {
+    border-top: 2px dotted white;
+    margin-top: 20px;
+    padding-top: 10px;
 }
 </style>
