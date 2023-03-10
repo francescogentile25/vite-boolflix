@@ -66,18 +66,10 @@ export default {
         },
         fetchCast() {
             axios
-                .get('https://api.themoviedb.org/3/tv/671/credits?api_key=f96597e112b6db7164f5627643c3e970', {
-                    params: {
-                        movie_id: this.id,
-                        language: 'it-IT',
-                    }
-                })
+                .get(`https://api.themoviedb.org/3/tv/${store.id}/credits?api_key=f96597e112b6db7164f5627643c3e970&language=it-IT}`)
                 .then((res) => {
                     this.store.cast = res.data.cast[0].name
-                    // console.log(this.store.cast)
-                    // for (let i = 0; i < 5; i++) {
-                    // this.store.cast.push(res.data.cast[i].name);
-                    // }
+                    console.log(this.store.cast)
                 })
         },
     },

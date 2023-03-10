@@ -43,6 +43,7 @@ export default {
           }
         })
         .then((res) => {
+          this.store.id = res.data.results.movie_id
           this.store.films = res.data.results
         })
     },

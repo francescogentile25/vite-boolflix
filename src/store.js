@@ -4,5 +4,6 @@ const store = reactive({
     tv: [],
     search: '',
     cast: [],
+    id: '',
 })
 export default store
