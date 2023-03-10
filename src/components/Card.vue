@@ -1,5 +1,6 @@
 <template>
     <div class="card  overflow-auto shadow" @mouseenter="isHover = true" @mouseleave="isHover = false">
+        <img v-if='fullPath === undefined' src="../assets/favicon.ico" alt="">
         <img :src="fullPath" class="card-img-top" alt="...">
         <div class=" description" :class="{ visible: isHover }">
             <h3>{{ film.original_title }}</h3>
@@ -30,7 +31,10 @@ export default {
     props: {
         film: {
             type: Object,
-            required: true
+            required: true,
+        },
+        id: {
+            type: Number,
         }
     },
     computed: {
@@ -57,21 +61,21 @@ export default {
                     return ('https://flagcdn.com/32x24/sc.png')
             }
         },
-        fetchCast() {
-            axios
-                .get('https://api.themoviedb.org/3/tv/671/credits?api_key=f96597e112b6db7164f5627643c3e970', {
-                    params: {
-                        movie_id: this.id,
-                        language: 'it-IT',
-                    }
-                })
-                .then((res) => {
-                    console.log(res.data.cast[1].name)
-                })
-        },
-    },
-    created() {
-        this.fetchCast()
+        //     fetchCast() {
+        //         axios
+        //             .get('https://api.themoviedb.org/3/tv/671/credits?api_key=f96597e112b6db7164f5627643c3e970', {
+        //                 params: {
+        //                     movie_id: this.id,
+        //                     language: 'it-IT',
+        //                 }
+        //             })
+        //             .then((res) => {
+        //                 this.store.cast = res.data.cast[1].name
+        //             })
+        //     },
+        // },
+        // created() {
+        //     this.fetchCast()
     }
 }
 </script>
