@@ -3,6 +3,6 @@ const store = reactive({
     films: [],
     tv: [],
     search: '',
-    cast: []
+    cast: [],
 })
 export default store

@@ -15,15 +15,18 @@
                 <font-awesome-icon icon="fa-solid fa-star" :class="{ 'text-warning': roundStar >= 5 }" />
             </div>
             <p class="overview">{{ film.overview }}</p>
+            <p>{{ this.store.cast }}</p>
         </div>
     </div>
 </template>
 
 <script>
+import store from '../store'
 import axios from 'axios'
 export default {
     data() {
         return {
+            store,
             imagePath: 'https://image.tmdb.org/t/p/w342/',
             isHover: false,
         }
@@ -61,21 +64,25 @@ export default {
                     return ('https://flagcdn.com/32x24/sc.png')
             }
         },
-        //     fetchCast() {
-        //         axios
-        //             .get('https://api.themoviedb.org/3/tv/671/credits?api_key=f96597e112b6db7164f5627643c3e970', {
-        //                 params: {
-        //                     movie_id: this.id,
-        //                     language: 'it-IT',
-        //                 }
-        //             })
-        //             .then((res) => {
-        //                 this.store.cast = res.data.cast[1].name
-        //             })
-        //     },
-        // },
-        // created() {
-        //     this.fetchCast()
+        fetchCast() {
+            axios
+                .get('https://api.themoviedb.org/3/tv/671/credits?api_key=f96597e112b6db7164f5627643c3e970', {
+                    params: {
+                        movie_id: this.id,
+                        language: 'it-IT',
+                    }
+                })
+                .then((res) => {
+                    this.store.cast = res.data.cast[0].name
+                    // console.log(this.store.cast)
+                    // for (let i = 0; i < 5; i++) {
+                    // this.store.cast.push(res.data.cast[i].name);
+                    // }
+                })
+        },
+    },
+    created() {
+        this.fetchCast()
     }
 }
 </script>
