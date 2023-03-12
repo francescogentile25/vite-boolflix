@@ -76,7 +76,7 @@ export default {
 
 .title {
   color: white;
-  grid-column: 1 / 8;
+  grid-column: 1 / -1;
   text-align: center;
   font-size: 52px;
 }

@@ -2,13 +2,13 @@
     <nav class="navbar bg-dark">
         <div class="container-fluid">
             <a class="navbar-brand text-white" href="#">
-                <img src="../assets/favicon.ico" alt="Logo" class="d-inline-block align-text-top">
-                <span class="text-danger fs-5 ms-3">BoolFlix</span>
+                <img src="../assets/logo.png" alt="Logo" class="d-inline-block align-text-top logo">
+
             </a>
             <div class="d-flex">
                 <input class="form-control me-2" placeholder="Ricerca" @keyup.enter="$emit('ricerca')"
                     v-model="store.search">
-                <button class="btn btn-outline-success" type="submit" @click="$emit('ricerca')">
+                <button class="btn btn-outline-danger" type="submit" @click="$emit('ricerca')">
                     Ricerca
                 </button>
             </div>
@@ -29,4 +29,8 @@ export default {
 }
 </script>
 
-<style lang="scss" scoped></style>
+<style lang="scss" scoped>
+.logo {
+    max-width: 200px;
+}
+</style>

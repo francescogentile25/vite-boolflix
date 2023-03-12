@@ -15,7 +15,7 @@
                 <font-awesome-icon icon="fa-solid fa-star" :class="{ 'text-warning': roundStar >= 5 }" />
             </div>
             <p class="overview">{{ film.overview }}</p>
-            <p>{{ this.store.cast }}</p>
+            <!-- <p>{{ this.store.cast }}</p> -->
         </div>
     </div>
 </template>
@@ -64,18 +64,18 @@ export default {
                     return ('https://flagcdn.com/32x24/sc.png')
             }
         },
-        fetchCast() {
-            axios
-                .get(`https://api.themoviedb.org/3/tv/${store.id}/credits?api_key=f96597e112b6db7164f5627643c3e970&language=it-IT}`)
-                .then((res) => {
-                    this.store.cast = res.data.cast[0].name
-                    console.log(this.store.cast)
-                })
-        },
+        // fetchCast() {
+        //     axios
+        //         .get(`https://api.themoviedb.org/3/tv/${store.id}/credits?api_key=f96597e112b6db7164f5627643c3e970&language=it-IT}`)
+        //         .then((res) => {
+        //             this.store.cast = res.data.cast[0].name
+        //             console.log(this.store.cast)
+        //         })
+        // },
     },
-    created() {
-        this.fetchCast()
-    }
+    // created() {
+    //     this.fetchCast()
+    // }
 }
 </script>
 
