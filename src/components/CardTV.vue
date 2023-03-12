@@ -1,6 +1,7 @@
 <template>
     <div class="card overflow-auto shadow" @mouseenter="isHover = true" @mouseleave="isHover = false">
-        <img :src="fullPath" class="card-img-top" alt="...">
+        <img v-if="fullPath" :src="fullPath" class="card-img-top" alt="...">
+        <img v-else src="../assets/logo.png" alt="">
         <div class=" description" :class="{ visible: isHover }">
             <h3>{{ tv.original_name }}</h3>
             <h5>{{ tv.name }}</h5>
@@ -34,7 +35,8 @@ export default {
     },
     computed: {
         fullPath() {
-            return this.imagePath + this.imageName;
+            // return this.imagePath + this.imageName;
+            return this.imageName ? this.imagePath + this.imageName : null
         },
         imageName() {
             return this.tv.poster_path;
